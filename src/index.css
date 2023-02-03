@@ -1,3 +1,44 @@
+:root {
+    --alive: #f9ffed;
+    --semidead: #b1c3b8;
+    --dead: #2b3825;
+  }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Kollektif;
+    src: url("fonts/Kollektif.ttf") format("opentype");
+}
+@font-face {
+    font-family: IntroBold;
+    src: url("fonts/IntroBold.otf") format("opentype");
+}
+@font-face {
+    font-family: JetBrainsMono;
+    src: url("fonts/JetBrainsMono.ttf") format("opentype");
+}
+ 
+
+@layer components {
+    .surface {
+        @apply bg-semidead border-b-4 border-b-dead px-8 py-4
+    }
+    .btn {
+        @apply bg-dead hover:bg-semidead text-alive hover:text-dead px-4
+    }
+    .btn-active {
+        @apply bg-alive text-dead px-4 hover:bg-alive
+    }
+    .btn-dark {
+        @apply bg-semidead hover:bg-alive text-dead
+    }
+    .btn-dark-active {
+        @apply bg-dead text-alive 
+    }
+    .min-h-page {
+        @apply min-h-[calc(100vh-4rem)]
+    }
+}
