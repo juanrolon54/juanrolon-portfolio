@@ -54,11 +54,8 @@ export default function Contact() {
         }
 
         const situations = {
-            object(value: object, key: string): ReactNode {
-                return jsonToInput(JSON.stringify(value), [...pos, key])
-            },
             string(string: string, key: string): ReactNode {
-                return <input id={JSON.stringify([...pos, key])} className="btn" type='text' value={string} />
+                return
             },
             number(number: number, key: string): ReactNode {
                 return <input id={JSON.stringify([...pos, key])} type='number' value={number} />
@@ -67,12 +64,15 @@ export default function Contact() {
 
         return Object.entries(parsedJson).map(([key, value]: [string, string]) => {
             const valueType: string = typeof value
-            if ()
+            if (valueType === 'object') return <label className="flex flex-col gap-2 p-2 border-2 border-dead border-dotted">
+                {jsonToInput(JSON.stringify(value), [...pos, key])}
+            </label>
 
-                return <label className="flex flex-col">
-                    {key.charAt(0).toUpperCase() + key.slice(1) + ` [${typeof value}]`}
-                    {typeof value in situations && situations[typeof value](value, key)}
-                </label>
+            if (valueType === 'string') return <label className="flex flex-col">
+                {key.charAt(0).toUpperCase() + key.slice(1) + ` [${typeof value}]`}
+                <input id={JSON.stringify([...pos, key])} className="btn" type='text' value={string} />
+            </label>
+            if (valueType === 'number')
         })
     }
 
