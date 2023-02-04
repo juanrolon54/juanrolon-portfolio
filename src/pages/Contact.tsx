@@ -92,10 +92,10 @@ export default function Contact() {
         }, 0);
     }
 
-    return <div className="min-h-page flex flex-col gap-4 py-32 px-32 2xl:px-64">
+    return <div className="min-h-page flex flex-col gap-4 p-4 sm:py-32 sm:px-32 2xl:px-64">
         <h4 className="font-introBold text-6xl">Get in touch</h4>
         <h6 className="text-2xl flex items-center gap-4">Fill the form (or edit the json).<HiPencilAlt className="text-4xl" /></h6>
-        <div className="grid grid-cols-2 min-h-[60vh] gap-16 bg-semidead">
+        <div className="grid sm:grid-cols-2 min-h-[60vh] gap-16 bg-semidead">
             {isFormSubmitted ?
                 <div className="col-span-2 grid place-content-center ">
                     <span className="flex flex-col justify-center gap-4 items-center surface">
@@ -110,12 +110,12 @@ export default function Contact() {
                     </span>
                 </div>
                 : <>
-                    <form onSubmit={handleSubmit} className={`border-2 border-dead p-4 flex flex-col  bg-alive ${error ? "bg-semidead" : ""}`}>
+                    <form onSubmit={handleSubmit} className={`border-2 border-dead p-4 flex flex-col bg-alive ${error ? "bg-semidead" : ""}`}>
                         <RecursiveJsonToInputs json={json} handleChange={handleChange} />
                         <div className="flex-1" />
                         {((!canSubmit) || error !== '') ? <div className="bg-semidead p-4 w-fit self-end mt-4 flex gap-4 items-center cursor-not-allowed">Submit<HiPaperAirplane className="text-2xl" /></div> : <button className="btn p-4 flex gap-4 items-center w-fit self-end mt-4">Submit <HiPaperAirplane className="text-2xl" /></button>}
                     </form>
-                    <div className="relative">
+                    <div className="relative h-96 sm:h-auto">
                         {error !== '' && <p className="bg-semidead text-dead absolute top-0 right-0 z-50">{error}</p>}
                         <p className="bg-semidead absolute bottom-0 right-0 z-50 text-dead px-2">{caretPos}</p>
                         <textarea
@@ -170,12 +170,12 @@ function RecursiveJsonToInputs(props: { json: string, handleChange: ChangeEventH
 
         if (valueType === 'string') return <label key={currentPos} className={`flex ${!keyIsNaN ? "gap-4" : "flex-col"}`}>
             <span className={!keyIsNaN ? "min-w-[1.5rem]" : ""}>{key.charAt(0).toUpperCase() + key.slice(1) + (!keyIsNaN ? " ." : "")}</span>
-            <input id={currentPos} className="btn" onChange={props.handleChange} type='text' value={value} />
+            <input id={currentPos} className="btn h-6" onChange={props.handleChange} type='text' value={value} />
         </label>
 
         if (valueType === 'number') return <label key={currentPos} className={`flex ${!keyIsNaN ? "gap-4" : "flex-col"}`}>
             <span className={!keyIsNaN ? "min-w-[1.5rem]" : ""}>{key.charAt(0).toUpperCase() + key.slice(1) + (!keyIsNaN ? " ." : "")}</span>
-            <input id={currentPos} className="btn" onChange={props.handleChange} type='number' value={value} />
+            <input id={currentPos} className="btn h-6" onChange={props.handleChange} type='number' value={value} />
         </label>
 
         return <></>

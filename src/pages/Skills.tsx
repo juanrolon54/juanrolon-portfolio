@@ -6,11 +6,11 @@ import {
 import { HiExternalLink as LinkIcon, HiChevronDown as ChevD, HiChevronRight as ChevR, HiFolder, HiFolderOpen, HiDocument } from 'react-icons/hi'
 
 export default function Skills() {
-    return <div className="min-h-page flex flex-col gap-4 py-32 px-32 2xl:px-64">
+    return <div className="min-h-page flex flex-col gap-4 p-4 sm:py-32 sm:px-32 2xl:px-64">
         <h2 className='text-6xl font-introBold'>Tech Skills</h2>
         <p className='text-2xl'>I feel comfortable working with front-end as well as back-end code.</p>
         <div className='flex flex-col gap-8'>
-            <div className='flex gap-4'>
+            <div className='flex flex-col sm:flex-row gap-4'>
                 <FrontEnd />
                 <WebBundle />
             </div>
@@ -22,7 +22,7 @@ export default function Skills() {
 }
 
 function WebBundle() {
-    return <div className='grid grid-cols-2 grid-rows-2 aspect-square gap-4 h-80 w-80 text-8xl'>
+    return <div className='grid grid-cols-2 grid-rows-2 aspect-square gap-4 sm:h-80 sm:w-80 text-8xl'>
         {[<SiHtml5 />, <SiCss3 />, <SiJavascript />, <small className='text-lg'>*included</small>]
             .map((e, i) => <div key={i} className='flex items-center justify-center surface'>{e}</div>)}
     </div>
@@ -34,7 +34,7 @@ function FrontEnd() {
     const { title, content, icon, website } = frontend[sel]
 
     return <div className="border-2 border-dead h-80 flex-1" >
-        <div className="flex h-8 pl-8 bg-dead">
+        <div className="flex h-8 sm:pl-8 bg-dead">
             {frontend.map((t, i) =>
                 <button key={i}
                     onClick={() => setSel(i)}
@@ -42,7 +42,7 @@ function FrontEnd() {
                     {t.icon}{t.title.toLowerCase()}
                 </button>
             )}
-            <div className='flex-1' />
+            <div className='sm:flex-1' />
             <ThreeDots />
         </div>
         <div className='bg-alive gap-4 p-4 overflow-y-scroll h-[calc(18rem-4px)]'>
@@ -78,7 +78,7 @@ const frontend = [
 ]
 
 function ThreeDots() {
-    return <div className='flex gap-2 p-1'>
+    return <div className='hidden sm:flex gap-2 p-1'>
         <div className='h-4 rounded-full bg-alive aspect-square hover:bg-semidead' />
         <div className='h-4 rounded-full bg-alive aspect-square hover:bg-semidead' />
         <div className='h-4 rounded-full bg-alive aspect-square hover:bg-semidead' />
@@ -92,8 +92,8 @@ function BackEnd() {
         if (target?.innerText && backend[target.innerText]) setSel(backend[target.innerText])
     }
 
-    return <div className='border-2 bg-semidead border-dead h-80 w-full flex text-lg'>
-        <div className='min-w-48 w-fit' onClick={clickHandler}>
+    return <div className='border-2 bg-semidead border-dead ms:h-80 w-full flex flex-col sm:flex-row text-lg'>
+        <div className='sm:min-w-48 w-fit' onClick={clickHandler}>
             <InfiniteFolder name='node_modules' />
             <Folder name="src">
                 <Folder name='db'>
@@ -107,7 +107,7 @@ function BackEnd() {
             <File icon={<TS />}>tsconfig.json</File>
             <File>.env</File>
         </div>
-        <code className='flex-1 bg-dead text-alive p-4 overflow-y-scroll break-all font-jetBrainsMono'>
+        <code className='h-[calc(18rem-4px)] sm:h-full sm:flex-1 bg-dead text-alive p-4 overflow-y-scroll font-jetBrainsMono'>
             {sel}
         </code>
     </div >
@@ -253,7 +253,7 @@ function InfiniteFolder(props: FolderProps) {
 }
 
 function SoftSkills() {
-    return <div className='grid grid-cols-4 gap-4'>
+    return <div className='grid sm:grid-cols-4 gap-4'>
         <div className='surface flex flex-col gap-4 items-start justify-start'>
             <h4 className='font-introBold text-2xl '>Communication</h4>
             <div className='text-8xl mx-auto'><SiDiscord /></div>

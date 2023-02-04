@@ -4,7 +4,7 @@ import { RiEnglishInput } from 'react-icons/ri'
 import { IoRocketSharp, IoSchool, IoCodeSlash } from 'react-icons/io5'
 
 export default function About() {
-    return <div className="min-h-page flex flex-col gap-4 py-32 px-32 2xl:px-64">
+    return <div className="min-h-page flex flex-col gap-4 p-4 sm:py-32 sm:px-32 2xl:px-64">
         <h4 className="text-6xl font-introBold">About Me</h4>
         <div className="flex flex-col">
             <h6 className="text-2xl border-b-4 border-b-semidead pb-2 w-fit">class <span className="surface p-0 border-b-0 px-2">Web Developer</span> extends <span className="btn">Person</span> {'{'}</h6>
@@ -28,7 +28,7 @@ export default function About() {
             </article>
             <h6 className="text-4xl pt-2">{'}'}</h6>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-4">
             <div className="surface flex flex-col gap-8">
                 <h6 className="text-4xl font-introBold">Education</h6>
                 <ul className="decoration-black list-disc list-inside flex flex-col gap-2">

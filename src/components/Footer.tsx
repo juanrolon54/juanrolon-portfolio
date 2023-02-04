@@ -17,7 +17,7 @@ export default function Footer() {
             My Github
         </a>
         <div className="flex-1" />
-        <div className="text-sm px-4 text-center">
+        <div className="hidden sm:inline text-sm px-4 text-center">
             <p>juanrolon54-portfolio © {new Date().getFullYear()}-{Math.ceil(Math.random() * 10 + new Date().getFullYear())}</p>
             <p className="leading-3 text-[0.5rem]">Infringement of this copyright is punishable <br />by death in any nation accesible by plane.</p>
         </div>

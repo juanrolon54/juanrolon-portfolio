@@ -19,14 +19,14 @@ export default function NavBar() {
     const [semiDead, setSemiDead] = useTheme('--semidead', '#b1c3b8')
     const [dead, setDead] = useTheme('--dead', '#2b3825')
 
-    return <nav className="bg-dead flex justify-start w-full text-dead h-16">
+    return <nav className="flex bg-dead justify-start w-full text-dead h-16 ">
         <div className='flex-1' />
         <NavLink className={tailNav()} to='/'><Home /></NavLink>
         <NavLink className={tailNav()} to='/skills'>skills</NavLink >
         <NavLink className={tailNav()} to='/about'>about</NavLink >
         <NavLink className={tailNav()} to='/contact'>contact</NavLink >
-        <input type='color' onChange={e => { setAlive(e.target.value) }} value={alive} className='btn aspect-square h-full p-2' />
-        <input type='color' onChange={e => { setSemiDead(e.target.value) }} value={semiDead} className='btn aspect-square h-full p-2' />
-        <input type='color' onChange={e => { setDead(e.target.value) }} value={dead} className='btn aspect-square h-full p-2' />
+        <input type='color' onChange={e => { setAlive(e.target.value) }} value={alive} className='hidden sm:inline btn aspect-square h-full p-2' />
+        <input type='color' onChange={e => { setSemiDead(e.target.value) }} value={semiDead} className='hidden sm:inline btn aspect-square h-full p-2' />
+        <input type='color' onChange={e => { setDead(e.target.value) }} value={dead} className='hidden sm:inline btn aspect-square h-full p-2' />
     </nav >
 }
