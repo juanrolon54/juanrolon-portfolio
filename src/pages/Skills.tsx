@@ -8,7 +8,7 @@ import { HiExternalLink as LinkIcon, HiChevronDown as ChevD, HiChevronRight as C
 export default function Skills() {
     return <div className="min-h-page flex flex-col gap-4 py-32 px-32 2xl:px-64">
         <h2 className='text-6xl font-introBold'>Tech Skills</h2>
-        <p>I feel comfortable working with front-end as well as back-end code.</p>
+        <p className='text-2xl'>I feel comfortable working with front-end as well as back-end code.</p>
         <div className='flex flex-col gap-8'>
             <div className='flex gap-4'>
                 <FrontEnd />

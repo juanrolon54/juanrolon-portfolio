@@ -6,16 +6,15 @@ import { send } from "@emailjs/browser"
 const initialJson = JSON.stringify({
     title: "",
     work: {
-        "work type": "Full Time Full Stack",
-        remote: true,
-        details: "",
+        "typeof work": "Full Time Full Stack",
+        remote: false,
     },
+    "extra details": "",
     "about you": {
         name: "",
         email: "",
         website: ""
     },
-    "comments": "",
     "like the website": true
 }, null, 2)
 
