@@ -7,7 +7,7 @@ import { Footer, NavBar } from './components'
 function App() {
 
   return (
-    <div className="min-h-screen font-kollektif flex flex-col text-dead bg-alive">
+    <div className="min-h-screen font-kollektif flex flex-col text-dead bg-alive border-y-4 border-y-dead">
       <NavBar />
       <div className='flex-1'>
         <Routes>
