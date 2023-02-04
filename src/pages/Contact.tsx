@@ -1,6 +1,7 @@
 import { useState, useRef } from "react"
 import { HiPencilAlt, HiPaperAirplane, HiOutlinePaperAirplane } from 'react-icons/hi'
 import type { ChangeEvent, FormEvent, ChangeEventHandler, ReactNode, ReactElement } from "react"
+import { send } from "@emailjs/browser"
 
 const initialJson = JSON.stringify({
     title: "",
@@ -39,7 +40,7 @@ export default function Contact() {
         }
         return true
     }
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
         try {
             if (!checkValues(JSON.parse(json))) return
@@ -47,6 +48,7 @@ export default function Contact() {
             return
         }
         setFormSubmission(true)
+        await send("service_8rnxjek", "template_iw69uea", { json }, "ck9zPDsmdkeGhwQge")
     }
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
