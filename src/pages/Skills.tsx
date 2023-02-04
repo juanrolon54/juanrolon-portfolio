@@ -107,7 +107,7 @@ function BackEnd() {
             <File icon={<TS />}>tsconfig.json</File>
             <File>.env</File>
         </div>
-        <code className='h-[calc(18rem-4px)] sm:h-full sm:flex-1 bg-dead text-alive p-4 overflow-y-scroll font-jetBrainsMono'>
+        <code className='h-[calc(18rem-4px)] sm:flex-1 bg-dead text-alive p-4 overflow-y-scroll font-jetBrainsMono'>
             {sel}
         </code>
     </div >
