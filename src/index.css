@@ -10,15 +10,15 @@
 
 @font-face {
   font-family: Kollektif;
-  src: url('Kollektif.ttf') format('opentype');
+  src: url('../public/Kollektif.ttf') format('opentype');
 }
 @font-face {
   font-family: IntroBold;
-  src: url('IntroBold.otf') format('opentype');
+  src: url('../public/IntroBold.otf') format('opentype');
 }
 @font-face {
   font-family: JetBrainsMono;
-  src: url('JetBrainsMono.ttf') format('opentype');
+  src: url('../public/JetBrainsMono.ttf') format('opentype');
 }
 
 @layer components {
