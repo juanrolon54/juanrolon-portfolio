@@ -100,6 +100,10 @@ export default function Contact() {
                             Thanks! <HiOutlinePaperAirplane className="text-4xl" />
                         </span>
                         I'll reach out to you as soon as possible!
+                        <button className="btn" onClick={() => {
+                            setFormSubmission(false)
+                            setSubmitAvailability(false)
+                        }}>Send another</button>
                     </span>
                 </div>
                 : <>
