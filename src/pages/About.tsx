@@ -7,8 +7,8 @@ export default function About() {
     return <div className="min-h-page flex flex-col gap-8 py-32 px-32 2xl:px-64">
         <h4 className="text-6xl font-introBold">About Me</h4>
         <div className="flex flex-col">
-            <h6 className="text-4xl border-b-2 border-b-semidead pb-2 w-fit">class <span className="surface p-0 px-2">Web Developer</span> extends <span className="btn">Person</span> {'{'}</h6>
-            <article className="flex flex-col gap-4 py-4 border-l-2 border-l-semidead">
+            <h6 className="text-4xl border-b-4 border-b-semidead pb-2 w-fit">class <span className="surface p-0 border-b-0 px-2">Web Developer</span> extends <span className="btn">Person</span> {'{'}</h6>
+            <article className="flex flex-col gap-4 py-4 border-l-4 border-l-semidead">
                 <p className="pl-4">
                     I'm a young student from Buenos Aires, Argentina.<br />
                     And as the title suggests, before a web developer I'm a person.<br />

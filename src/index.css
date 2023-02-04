@@ -9,15 +9,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Kollektif;
+  font-family: Kollektif, sans-serif;
   src: url('fonts/Kollektif.ttf') format('opentype');
 }
 @font-face {
-  font-family: IntroBold;
+  font-family: IntroBold, sans-serif;
   src: url('fonts/IntroBold.otf') format('opentype');
 }
 @font-face {
-  font-family: JetBrainsMono;
+  font-family: JetBrainsMono, monospace;
   src: url('fonts/JetBrainsMono.ttf') format('opentype');
 }
 
@@ -40,4 +40,11 @@
   .min-h-page {
     @apply min-h-[calc(100vh-4rem)];
   }
+  
+  .chk {
+    @apply cursor-pointer form-checkbox bg-dead hover:text-semidead h-6 w-6 hover:bg-semidead 
+  } 
+  .chk:checked {
+    @apply bg-dead focus:outline-0 hover:text-semidead after:bg-alive after:aspect-square after:px-2 relative after:absolute after:inset-1
+  } 
 }

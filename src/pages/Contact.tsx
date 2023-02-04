@@ -3,17 +3,19 @@ import { HiPencilAlt, HiPaperAirplane, HiOutlinePaperAirplane } from 'react-icon
 import type { ChangeEvent, FormEvent, ChangeEventHandler, ReactNode, ReactElement } from "react"
 
 const initialJson = JSON.stringify({
-    name: "",
-    subject: "",
+    title: "",
     work: {
         "work type": "Full Time Full Stack",
-        remote: true
+        remote: true,
+        details: "",
     },
     "about you": {
+        name: "",
         email: "",
         website: ""
     },
-    "comments/details": ""
+    "comments": "",
+    "like the website": true
 }, null, 2)
 
 export default function Contact() {
@@ -92,9 +94,9 @@ export default function Contact() {
     return <div className="min-h-page flex flex-col gap-4 py-32 px-32 2xl:px-64">
         <h4 className="font-introBold text-6xl">Get in touch</h4>
         <h6 className="text-2xl flex items-center gap-4">Fill the form (or edit the json).<HiPencilAlt className="text-4xl" /></h6>
-        <div className="grid grid-cols-2 min-h-[60vh] gap-16">
+        <div className="grid grid-cols-2 min-h-[60vh] gap-16 bg-semidead">
             {isFormSubmitted ?
-                <div className="col-span-2 grid place-content-center">
+                <div className="col-span-2 grid place-content-center ">
                     <span className="flex flex-col justify-center gap-4 items-center surface">
                         <span className="text-2xl font-introBold flex justify-center gap-4 items-center">
                             Thanks! <HiOutlinePaperAirplane className="text-4xl" />
@@ -107,10 +109,10 @@ export default function Contact() {
                     </span>
                 </div>
                 : <>
-                    <form onSubmit={handleSubmit} className={`border-2 border-dead p-4 flex flex-col ${error ? "bg-semidead" : ""}`}>
+                    <form onSubmit={handleSubmit} className={`border-2 border-dead p-4 flex flex-col  bg-alive ${error ? "bg-semidead" : ""}`}>
                         <RecursiveJsonToInputs json={json} handleChange={handleChange} />
                         <div className="flex-1" />
-                        {((!canSubmit) || error !== '') ? <div className="bg-semidead p-4 w-fit self-end mt-4 flex gap-4 items-center">Submit<HiPaperAirplane className="text-2xl" /></div> : <button className="btn p-4 flex gap-4 items-center w-fit self-end mt-4">Submit <HiPaperAirplane className="text-2xl" /></button>}
+                        {((!canSubmit) || error !== '') ? <div className="bg-semidead p-4 w-fit self-end mt-4 flex gap-4 items-center cursor-not-allowed">Submit<HiPaperAirplane className="text-2xl" /></div> : <button className="btn p-4 flex gap-4 items-center w-fit self-end mt-4">Submit <HiPaperAirplane className="text-2xl" /></button>}
                     </form>
                     <div className="relative">
                         {error !== '' && <p className="bg-semidead text-dead absolute top-0 right-0 z-50">{error}</p>}
@@ -120,7 +122,10 @@ export default function Contact() {
                             onKeyDown={(e: any) => { setCaretPos(e.target.selectionStart) }}
                             onMouseDown={(e: any) => { setCaretPos(e.target.selectionStart) }}
                             onChange={handleJSON}
-                            className="bg-dead text-alive p-4 font-jetBrainsMono resize-none w-full h-full relative"
+                            autoCorrect="none"
+                            autoComplete="none"
+                            autoCapitalize="none"
+                            className="bg-dead outline-none text-alive p-4 font-jetBrainsMono resize-none w-full h-full relative"
                         />
                     </div>
                 </>}
@@ -147,16 +152,19 @@ function RecursiveJsonToInputs(props: { json: string, handleChange: ChangeEventH
         const keyIsNaN = Number.isNaN(Number(key))
         const currentPos = JSON.stringify([...pos, key])
 
-        if (valueType === 'object') return <div key={currentPos} className="flex flex-col">
-            {key.charAt(0).toUpperCase() + key.slice(1)}
-            <div className="flex flex-col gap-2 p-2 ml-4 border-2 border-dead border-dotted pb-4">
+        if (valueType === 'object') return <div key={currentPos} className="flex flex-col mt-4">
+            <div className="flex">
+                <span className="border-2 border-dotted border-dead border-b-0 px-4">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                <div className="flex-1 border-b-2 border-dotted w-8 border-b-dead" />
+            </div>
+            <div className="flex flex-col content-end gap-2 p-2 border-2 border-dead border-dotted pb-4 border-t-0">
                 <RecursiveJsonToInputs {...props} json={JSON.stringify(value)} pos={JSON.parse(currentPos)} />
             </div>
         </div>
 
-        if (valueType === 'boolean') return <label key={currentPos} className="flex gap-4">
+        if (valueType === 'boolean') return <label key={currentPos} className="flex gap-4 items-center h-10">
             <span className={!keyIsNaN ? "min-w-[1.5rem]" : ""}>{key.charAt(0).toUpperCase() + key.slice(1) + (!keyIsNaN ? " ." : "")}</span>
-            <input id={currentPos} className="" onChange={props.handleChange} type='checkbox' checked={value} />
+            <input id={currentPos} className="chk" onChange={props.handleChange} type='checkbox' checked={value} />
         </label>
 
         if (valueType === 'string') return <label key={currentPos} className={`flex ${!keyIsNaN ? "gap-4" : "flex-col"}`}>
