@@ -9,15 +9,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Kollektif, sans-serif;
+  font-family: Kollektif;
   src: url('fonts/Kollektif.ttf') format('opentype');
 }
 @font-face {
-  font-family: IntroBold, sans-serif;
+  font-family: IntroBold;
   src: url('fonts/IntroBold.otf') format('opentype');
 }
 @font-face {
-  font-family: JetBrainsMono, monospace;
+  font-family: JetBrainsMono;
   src: url('fonts/JetBrainsMono.ttf') format('opentype');
 }
 
